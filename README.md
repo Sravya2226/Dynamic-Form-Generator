@@ -1,6 +1,7 @@
 Dynamic Form Generator
 Overview
 Dynamic Form Generator is a powerful, flexible React application that allows users to create dynamic forms in real-time by editing a JSON schema. The application provides a split-screen interface with a JSON editor and live form preview, enabling instant form generation and validation.
+
 🚀 Features
 
 Real-time Form Generation: Instantly create forms by editing JSON

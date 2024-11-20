@@ -26,14 +26,43 @@ npm (v6 or later)
 
 🔧 Installation
 
-Clone the repository
+Core Dependencies:
 
-bashCopygit clone https://github.com/yourusername/dynamic-form-generator.git
-cd dynamic-form-generator
+react & react-dom (v18+)
+typescript
+tailwindcss and its peer dependencies:
+      postcss
+      autoprefixer
 
-Install dependencies
+Form Handling:
 
-bashCopynpm install
+react-hook-form - For form state management and validation
+@hookform/resolvers - For schema validation
+zod - For runtime type checking and schema validation
+
+JSON Editor:
+
+@monaco-editor/react - For JSON editing with syntax highlighting
+prettier - For JSON formatting
+
+Here's how you would install these core dependencies:
+# Core dependencies
+npm install react react-dom typescript
+
+# Tailwind and styling
+npm install -D tailwindcss postcss autoprefixer
+
+# Form handling
+npm install react-hook-form @hookform/resolvers zod
+
+# JSON editor
+npm install @monaco-editor/react prettier
+
+# Testing
+npm install -D jest @testing-library/react @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom @playwright/test
+
+# Types
+npm install -D @types/react @types/react-dom @types/jest
 
 Start the development server
 
@@ -69,26 +98,142 @@ npm run test:e2e
 📋 Example Form Schemas
 1. Project Requirements Survey
 jsonCopy{
+ {
+
   "formTitle": "Project Requirements Survey",
-  "formDescription": "Tell us about your project needs",
+
+  "formDescription": "Please fill out this survey about your project needs",
+
   "fields": [
+
     {
+
       "id": "name",
+
       "type": "text",
+
       "label": "Full Name",
-      "required": true
-    },
-    {
-      "id": "email",
-      "type": "email",
-      "label": "Email Address",
+
       "required": true,
+
+      "placeholder": "Enter your full name"
+
+    },
+
+    {
+
+      "id": "email",
+
+      "type": "email",
+
+      "label": "Email Address",
+
+      "required": true,
+
+      "placeholder": "you@example.com",
+
       "validation": {
+
         "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-        "message": "Invalid email address"
+
+        "message": "Please enter a valid email address"
+
       }
+
+    },
+
+    {
+
+      "id": "companySize",
+
+      "type": "select",
+
+      "label": "Company Size",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "1-50", "label": "1-50 employees" },
+
+        { "value": "51-200", "label": "51-200 employees" },
+
+        { "value": "201-1000", "label": "201-1000 employees" },
+
+        { "value": "1000+", "label": "1000+ employees" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "industry",
+
+      "type": "radio",
+
+      "label": "Industry",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "tech", "label": "Technology" },
+
+        { "value": "healthcare", "label": "Healthcare" },
+
+        { "value": "finance", "label": "Finance" },
+
+        { "value": "retail", "label": "Retail" },
+
+        { "value": "other", "label": "Other" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "timeline",
+
+      "type": "select",
+
+      "label": "Project Timeline",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "immediate", "label": "Immediate (within 1 month)" },
+
+        { "value": "short", "label": "Short-term (1-3 months)" },
+
+        { "value": "medium", "label": "Medium-term (3-6 months)" },
+
+        { "value": "long", "label": "Long-term (6+ months)" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "comments",
+
+      "type": "textarea",
+
+      "label": "Additional Comments",
+
+      "required": false,
+
+      "placeholder": "Any other details you'd like to share..."
+
     }
+
   ]
+
+}
+
 }
 🌟 Bonus Features
 
